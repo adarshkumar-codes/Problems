@@ -1,0 +1,29 @@
+-- 176. Second Highest Salary
+-- Solved
+-- https://leetcode.com/problems/second-highest-salary/
+select (select distinct salary from employee order by salary desc limit 1 offset 1) as SecondHighestSalary
+
+
+-- 1661. Average Time of Process per Machine
+-- Solved
+-- https://leetcode.com/problems/average-time-of-process-per-machine/description/
+
+select a.machine_id, round(avg(b.timestamp - a.timestamp),3) as processing_time from Activity a join Activity b
+on a.machine_id = b.machine_id and a.process_id = b.process_id and a.activity_type = 'start' and b.activity_type = 'end'
+group by a.machine_id
+
+
+-- 1193. Monthly Transactions I
+-- Solved
+-- https://leetcode.com/problems/monthly-transactions-i/
+
+select date_format(trans_date, '%Y-%m') as month, country, count(state) as trans_count, count(case when state='approved' then 1 end) as approved_count, sum(amount) as trans_total_amount, sum(case when state = 'approved' then amount else 0 end) as approved_total_amount from Transactions group by country, month;
+
+
+
+-- 184. Department Highest Salary
+-- Solved
+-- https://leetcode.com/problems/department-highest-salary/description/
+
+with total as (select d.name as Department, e.name as Employee, e.salary as Salary, rank() over(partition by d.name order by e.salary desc) as ranking from Employee e join Department d on e.departmentId = d.id)
+select Department, Employee, Salary from total where ranking = 1
