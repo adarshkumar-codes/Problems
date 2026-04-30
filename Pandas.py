@@ -1,3 +1,15 @@
+# 185. Department Top Three Salaries
+# https://leetcode.com/problems/department-top-three-salaries
+
+import pandas as pd
+
+def top_three_salaries(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    employee = pd.merge(employee, department, left_on='departmentId', right_on='id', how='inner')
+    employee['rank'] = employee.groupby('name_y')['salary'].rank(method='dense', ascending=False)
+    employee = employee[employee['rank']<4]
+    return pd.DataFrame({'Department':employee['name_y'], 'Employee':employee['name_x'], 'Salary':employee['salary']})
+
+
 # 175. Combine Two Tables
 # https://leetcode.com/problems/combine-two-tables/
 
