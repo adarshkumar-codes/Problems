@@ -1,3 +1,7 @@
+-- Person's average > Average of the country, Problem from w3schools
+select s.CustomerName, s.Country, round(s.average_p,2) as AverageByCountry, round(t.average,2) as AverageByCustomer from (SELECT c.Country, c.CustomerName, avg(od.Quantity) as average_p FROM Customers c join Orders o on c.CustomerID = o.CustomerID join OrderDetails od on od.OrderID = o.OrderID group by c.CustomerName) s left join (SELECT c.Country, avg(od.Quantity) as average FROM Customers c join Orders o on c.CustomerID = o.CustomerID join OrderDetails od on od.OrderID = o.OrderID group by c.Country) t on s.Country = t.Country where s.average_p > t.average;
+
+
 -- 176. Second Highest Salary
 -- Solved
 -- https://leetcode.com/problems/second-highest-salary/
