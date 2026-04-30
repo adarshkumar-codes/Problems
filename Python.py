@@ -8,3 +8,10 @@ class Solution:
         c = moves.count('_')
         return max(a+c-b,b+c-a)
 
+# 367. Valid Perfect Square
+# https://leetcode.com/problems/valid-perfect-square/
+
+import math
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        return math.sqrt(num) % 1 == 0
