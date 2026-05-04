@@ -1,3 +1,17 @@
+# 1327. List the Products Ordered in a Period
+# https://leetcode.com/problems/list-the-products-ordered-in-a-period/description/
+import pandas as pd
+
+def list_products(products: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+    orders = orders[
+    (orders['order_date'].dt.month == 2) &
+    (orders['order_date'].dt.year == 2020)]
+    orders = orders.groupby('product_id', as_index=False).agg({'unit': 'sum'})
+    orders = orders[orders['unit']>=100]
+    orders = orders.merge(products, on='product_id', how='inner')
+    return orders[['product_name','unit']]
+    
+
 # 185. Department Top Three Salaries
 # https://leetcode.com/problems/department-top-three-salaries
 
