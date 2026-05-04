@@ -1,3 +1,15 @@
+# 796. Rotate String
+# https://leetcode.com/problems/rotate-string/description/
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        i = 0
+        while i <= len(s):
+            if s[i:]+s[:i] == goal:
+                return True
+            i+=1
+        return False
+
+
 # 2833. Furthest Point From Origin
 # Solved
 # https://leetcode.com/problems/furthest-point-from-origin/
