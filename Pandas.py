@@ -1,3 +1,11 @@
+# 2877. Create a DataFrame from List
+# https://leetcode.com/problems/create-a-dataframe-from-list/description/
+import pandas as pd
+
+def createDataframe(student_data: List[List[int]]) -> pd.DataFrame:
+    return pd.DataFrame(student_data, columns=['student_id','age'])
+
+
 # 1327. List the Products Ordered in a Period
 # https://leetcode.com/problems/list-the-products-ordered-in-a-period/description/
 import pandas as pd
