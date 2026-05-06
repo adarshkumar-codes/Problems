@@ -1,3 +1,13 @@
+-- 1587. Bank Account Summary II
+-- https://leetcode.com/problems/bank-account-summary-ii/description/
+select u.name as NAME, 
+sum(t.amount) as BALANCE 
+from Users u join Transactions t 
+on u.account = t.account 
+group by name 
+having BALANCE > 10000
+
+
 -- 607. Sales Person
 --   https://leetcode.com/problems/sales-person/description/
 select name
