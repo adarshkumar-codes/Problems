@@ -1,3 +1,15 @@
+# Calculate Samantha's and Lisa's total sales revenue
+# https://platform.stratascratch.com/coding/10127-calculate-samanthas-and-lisas-total-sales-revenue?code_type=6
+# Import your libraries
+import pyspark
+from pyspark.sql.functions import col, sum
+# Start writing code
+sales_performance = sales_performance.filter((col('salesperson') == 'Samantha') | (col('salesperson') == 'Lisa'))
+sales_performance = sales_performance.agg({'sales_revenue':'sum'})
+# To validate your solution, convert your final pySpark df to a pandas df
+sales_performance.toPandas()
+
+
 # Average Salaries
 # https://platform.stratascratch.com/coding/9917-average-salaries?code_type=6
 
