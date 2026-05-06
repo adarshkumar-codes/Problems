@@ -1,3 +1,14 @@
+# Finding Updated Records
+# https://platform.stratascratch.com/coding/10299-finding-updated-records?code_type=2
+# Import your libraries
+import pandas as pd
+
+ms_employee_salary = ms_employee_salary[
+ms_employee_salary['salary'] == ms_employee_salary.groupby('id')['salary'].transform('max')]
+# Start writing code
+ms_employee_salary.head(76)
+
+
 # 2877. Create a DataFrame from List
 # https://leetcode.com/problems/create-a-dataframe-from-list/description/
 import pandas as pd
