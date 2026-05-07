@@ -1,3 +1,12 @@
+# Hour Of Highest Gas Expense
+# https://platform.stratascratch.com/coding/10005-hour-of-highest-gas-expense?code_type=2
+# Import your libraries
+import pandas as pd
+lyft_rides = lyft_rides[lyft_rides['gasoline_cost'] == lyft_rides['gasoline_cost'].max() ][['hour']]
+# Start writing code
+lyft_rides.head()
+
+
 # Finding Updated Records
 # https://platform.stratascratch.com/coding/10299-finding-updated-records?code_type=2
 # Import your libraries
