@@ -1,3 +1,14 @@
+# Find all Lyft rides which happened on rainy days before noon
+# https://platform.stratascratch.com/coding/10004-find-all-lyft-rides-which-happened-on-rainy-days-before-noon?code_type=6
+# Import your libraries
+import pyspark
+from pyspark.sql.functions import col
+# Start writing code
+lyft_rides = lyft_rides.filter((lyft_rides['weather'] == 'rainy') & (col('hour').between(0,11)))
+# To validate your solution, convert your final pySpark df to a pandas df
+lyft_rides.toPandas()
+
+
 # Calculate Samantha's and Lisa's total sales revenue
 # https://platform.stratascratch.com/coding/10127-calculate-samanthas-and-lisas-total-sales-revenue?code_type=6
 # Import your libraries
