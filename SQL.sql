@@ -1,3 +1,13 @@
+-- Users Missing Phone Numbers
+-- https://platform.stratascratch.com/coding/2168-users-missing-phone-numbers?code_type=3
+select user_id, user_name from fintech_app_users where phone_number is null;
+
+
+-- Top Ranked Songs
+--     https://platform.stratascratch.com/coding/9991-top-ranked-songs?code_type=3
+    select trackname, count(position) as times_top1 from spotify_worldwide_daily_song_ranking where position = 1 group by trackname order by times_top1 desc
+
+
 -- Unique Users Per Client Per Month
 -- https://platform.stratascratch.com/coding/2024-unique-users-per-client-per-month?code_type=3
 select client_id, month(time_id) as month, count(distinct user_id) as users_num from fact_events
