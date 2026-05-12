@@ -1,3 +1,10 @@
+# Most Profitable Financial Company
+# https://platform.stratascratch.com/coding/9663-find-the-most-profitable-company-in-the-financial-sector-of-the-entire-world-along-with-its-continent?code_type=6
+import pyspark
+df = forbes_global_2010_2014.orderBy('profits', ascending=False).select('company','continent').limit(1)
+df.toPandas()
+
+
 # Find all Lyft rides which happened on rainy days before noon
 # https://platform.stratascratch.com/coding/10004-find-all-lyft-rides-which-happened-on-rainy-days-before-noon?code_type=6
 # Import your libraries
