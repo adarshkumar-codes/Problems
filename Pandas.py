@@ -1,3 +1,19 @@
+# MacBookPro User Event Count
+# https://platform.stratascratch.com/coding/9653-count-the-number-of-user-events-performed-by-macbookpro-users?code_type=2
+import pandas as pd
+playbook_events = playbook_events[playbook_events['device'] == 'macbook pro']
+playbook_events = playbook_events.groupby('event_name', as_index = False).agg(event_count=('device', 'count')).sort_values('event_count',ascending=False)
+# Start writing code
+playbook_events.head(len(playbook_events))
+
+
+# Inspection For Glassell Coffee Shop
+# https://platform.stratascratch.com/coding/9689-inspection-for-glassell-coffee-shop?code_type=2
+import pandas as pd
+los_angels_restaurant_health_inspections = los_angeles_restaurant_health_inspections[los_angeles_restaurant_health_inspections['owner_name']=='GLASSELL COFFEE SHOP LLC']
+los_angeles_restaurant_health_inspections.head()
+
+
 # Hour Of Highest Gas Expense
 # https://platform.stratascratch.com/coding/10005-hour-of-highest-gas-expense?code_type=2
 # Import your libraries
